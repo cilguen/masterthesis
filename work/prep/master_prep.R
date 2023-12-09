@@ -11,3 +11,5 @@ source("C:/Users/Can/Desktop/masterthesis/masterthesis/work/prep/merge_data.R")
 
 # clean dataset
 source("C:/Users/Can/Desktop/masterthesis/masterthesis/work/prep/clean_data.R")
+
+prosocial_data <- subset(data, participant.svo_category == "Prosocial")
