@@ -4,27 +4,54 @@ source("C:/Users/Can/Desktop/masterthesis/masterthesis/work/prep/master_prep.R")
 
 # Outcome = 0
 
-a <- sum(data$choice0 == 1 & data$choice00 == 1)
+a0 <- sum(data$choice0 == 1 & data$choice00 == 1)
 
-b <- sum(data$choice0 == 1 & data$choice00 == 0)
+b0 <- sum(data$choice0 == 1 & data$choice00 == 0)
 
-c <- sum(data$choice0 == 0 & data$choice00 == 1)
+c0 <- sum(data$choice0 == 0 & data$choice00 == 1)
 
-d <- sum(data$choice0 == 0 & data$choice00 == 0)
+d0 <- sum(data$choice0 == 0 & data$choice00 == 0)
 
-mcn0 <- matrix(c(a,b,c,d), nrow = 2, byrow = TRUE)
+mcn0 <- matrix(c(a0,b0,c0,d0), nrow = 2, byrow = TRUE)
 
 mcnemar.test(mcn0, correct = FALSE)
 
 
-a_ps <- sum(prosocial_data$choice0 == 1 & prosocial_data$choice00 == 1)
+a0_ps <- sum(prosocial_data$choice0 == 1 & prosocial_data$choice00 == 1)
 
-b_ps <- sum(prosocial_data$choice0 == 1 & prosocial_data$choice00 == 0)
+b0_ps <- sum(prosocial_data$choice0 == 1 & prosocial_data$choice00 == 0)
 
-c_ps <- sum(prosocial_data$choice0 == 0 & prosocial_data$choice00 == 1)
+c0_ps <- sum(prosocial_data$choice0 == 0 & prosocial_data$choice00 == 1)
 
-d_ps <- sum(prosocial_data$choice0 == 0 & prosocial_data$choice00 == 0)
+d0_ps <- sum(prosocial_data$choice0 == 0 & prosocial_data$choice00 == 0)
 
-mcn0_ps <- matrix(c(a_ps,b_ps,c_ps,d_ps), nrow = 2, byrow = TRUE)
+mcn0_ps <- matrix(c(a0_ps,b0_ps,c0_ps,d0_ps), nrow = 2, byrow = TRUE)
+
+mcnemar.test(mcn0_ps, correct = FALSE)
+
+# Outcome = 1
+
+a1 <- sum(data$choice1 == 1 & data$choice11 == 1)
+
+b1 <- sum(data$choice1 == 1 & data$choice11 == 0)
+
+c1 <- sum(data$choice1 == 0 & data$choice11 == 1)
+
+d1 <- sum(data$choice1 == 0 & data$choice11 == 0)
+
+mcn1 <- matrix(c(a1,b1,c1,d1), nrow = 2, byrow = TRUE)
+
+mcnemar.test(mcn1, correct = FALSE)
+
+
+a1_ps <- sum(prosocial_data$choice1 == 1 & prosocial_data$choice11 == 1)
+
+b1_ps <- sum(prosocial_data$choice1 == 1 & prosocial_data$choice11 == 0)
+
+c1_ps <- sum(prosocial_data$choice1 == 0 & prosocial_data$choice11 == 1)
+
+d1_ps <- sum(prosocial_data$choice1 == 0 & prosocial_data$choice11 == 0)
+
+mcn1_ps <- matrix(c(a1_ps,b1_ps,c1_ps,d1_ps), nrow = 2, byrow = TRUE)
 
 mcnemar.test(mcn0_ps, correct = FALSE)

@@ -136,6 +136,17 @@ data <- data %>%
 data <- data %>%
   filter(participant.progress == 57)
 
+# clean data where consent was revoked
+data <- data %>%
+  mutate_all(~ ifelse(. == "CONSENT_REVOKED", NA, .))
+
+# clean data that expired
+data <- data %>%
+  mutate_all(~ ifelse(. == "DATA_EXPIRED", NA, .))
+
+# format Age as numeric
+data$Age <- as.numeric(data$Age)
+
 # Filter out people who failed the test rounds
 data <- data %>%
   filter(ac_ug_sp.1.player.proposer_payoff == 3)
