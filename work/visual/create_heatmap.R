@@ -1,7 +1,10 @@
+setwd("C:/Users/Can/Desktop/masterthesis")
+
+data <- read.csv("data/full_data.csv")
+
+prosocial_data <- read.csv("data/prosocial_data.csv")
+
 library(ggplot2)
-
-source("C:/Users/Can/Desktop/masterthesis/masterthesis/work/prep/master_prep.R")
-
 
 ##### Create heatmap of all choice variables #####
 

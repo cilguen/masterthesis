@@ -1,15 +1,20 @@
 # master script
-
+setwd("C:/Users/Can/Desktop/masterthesis/")
 # load answers
-source("C:/Users/Can/Desktop/masterthesis/masterthesis/work/prep/load_answers.R")
+source("work/prep/load_answers.R")
 
 # load demographics
-source("C:/Users/Can/Desktop/masterthesis/masterthesis/work/prep/load_demographics.R")
+source("work/prep/load_demographics.R")
 
 # merge answers and demographics
-source("C:/Users/Can/Desktop/masterthesis/masterthesis/work/prep/merge_data.R")
+source("work/prep/merge_data.R")
 
 # clean dataset
-source("C:/Users/Can/Desktop/masterthesis/masterthesis/work/prep/clean_data.R")
+source("work/prep/clean_data.R")
 
 prosocial_data <- subset(data, participant.svo_category == "Prosocial")
+
+# save prepared dataset
+write.csv(data, "data/full_data.csv", row.names = FALSE)
+
+write.csv(prosocial_data, "data/prosocial_data.csv", row.names = FALSE)

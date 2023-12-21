@@ -1,4 +1,9 @@
-source("C:/Users/Can/Desktop/masterthesis/masterthesis/work/prep/master_prep.R")
+setwd("C:/Users/Can/Desktop/masterthesis")
+
+data <- read.csv("data/full_data.csv")
+
+prosocial_data <- read.csv("data/prosocial_data.csv")
+
 library(MASS)
 
 # run logistic regression
@@ -40,6 +45,17 @@ summary(glm(choice4 ~
               choice45 +
               choice46, data = data, family = "binomial"))
 
+##### test for significant effects of choices to one another pt2 ##### 
+
+summary(glm(choice0 ~ choice00, data = data, family = "binomial"))
+
+summary(glm(choice1 ~ choice02 + choice11, data = data, family = "binomial"))
+
+summary(glm(choice2 ~ choice04 + choice13 + choice22, data = data, family = "binomial"))
+
+summary(glm(choice3 ~ choice06 + choice15 + choice24 + choice33, data = data, family = "binomial"))
+
+summary(glm(choice4 ~ choice26 + choice35 + choice44, data = data, family = "binomial"))
 
 ##### create new outcome variable that counts the number of "unfair" offers accepted #####
 

@@ -1,6 +1,10 @@
-library(ggplot2)
+setwd("C:/Users/Can/Desktop/masterthesis")
 
-source("C:/Users/Can/Desktop/masterthesis/masterthesis/work/prep/master_prep.R")
+data <- read.csv("data/full_data.csv")
+
+prosocial_data <- read.csv("data/prosocial_data.csv")
+
+library(ggplot2)
 
 # Create Bar Charts to compare Group- vs. Individual Punishment #
 

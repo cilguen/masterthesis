@@ -1,4 +1,8 @@
-source("C:/Users/Can/Desktop/masterthesis/masterthesis/work/prep/master_prep.R")
+setwd("C:/Users/Can/Desktop/masterthesis")
+
+data <- read.csv("data/full_data.csv")
+
+prosocial_data <- read.csv("data/prosocial_data.csv")
 
 # run McNemar's to find out if average acceptance rate differs by group / individual offer
 
