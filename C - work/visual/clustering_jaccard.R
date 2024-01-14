@@ -1,6 +1,6 @@
 setwd("C:/Users/Can/Desktop/masterthesis")
 
-data <- read.csv("data/full_data.csv")
+data <- read.csv("B - data/full_data.csv")
 
 prosocial_data <- read.csv("data/prosocial_data.csv")
 

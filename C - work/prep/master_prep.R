@@ -3,7 +3,7 @@ setwd("C:/Users/Can/Desktop/masterthesis/")
 
 ##### load answers #####
 
-answers_file_path <- "data/UG.csv"
+answers_file_path <- "B - data/UG.csv"
 
 # Read the CSV file into a data frame
 answers <- read.csv(answers_file_path)
@@ -12,7 +12,7 @@ answers <- read.csv(answers_file_path)
 
 ##### load demographics #####
 
-demographics_file_path <- "data/Demographic_UG_full.csv"
+demographics_file_path <- "B - data/Demographic_UG_full.csv"
 
 # Read the CSV file into a data frame
 demographics <- read.csv(demographics_file_path)
@@ -208,6 +208,6 @@ data <- data %>%
 prosocial_data <- subset(data, participant.svo_category == "Prosocial")
 
 # save prepared dataset
-write.csv(data, "data/full_data.csv", row.names = FALSE)
+write.csv(data, "B - data/full_data.csv", row.names = FALSE)
 
-write.csv(prosocial_data, "data/prosocial_data.csv", row.names = FALSE)
+write.csv(prosocial_data, "B - data/prosocial_data.csv", row.names = FALSE)

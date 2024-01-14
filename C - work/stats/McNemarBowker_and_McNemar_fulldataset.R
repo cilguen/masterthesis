@@ -1,10 +1,8 @@
 setwd("C:/Users/Can/Desktop/masterthesis")
 
-data <- read.csv("data/full_data.csv")
+data <- read.csv("B - data/full_data.csv")
 
 prosocial_data <- subset(data, participant.svo_category == "Prosocial")
-
-data <- prosocial_data # overwrite the df used in the script such that the original code from the full dataset does not have to be changed
 
 # Script to run McNemar-Bowker test of Matrix symmetry on minimum tolerable offer by groups versus minimum tolerable offer by individuals
 
@@ -29,6 +27,7 @@ table(data$mintol_go, data$mintol_io)
 mcn_data <- as.matrix(table(data$mintol_go, data$mintol_io))
 
 # remove uncomparable observations (those where mto = decimal number)
+
 
 mcn <- matrix(c(mcn_data[1,1], mcn_data[1,2], mcn_data[1,3],
                 mcn_data[3,1], mcn_data[3,2], mcn_data[3,3],
