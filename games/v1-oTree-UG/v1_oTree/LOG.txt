@@ -1,5 +1,0 @@
-- Changed Attention check to no longer show error message but let participants continue even without the right answers
-- renamed attention check player variables to better separate them from regular choices
-- renamed regular choices to better separate them from attention checks
-- randomized order of distributions shown in P games
-- Introduction of color codes for players
