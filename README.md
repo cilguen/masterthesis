@@ -1,2 +1,5 @@
 # masterthesis
-analysis of data for my master thesis
+- experimental setup using oTree
+- Data import and cleaning using R
+- Data analysis using R
+- Masterthesis
