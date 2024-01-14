@@ -1,0 +1,39 @@
+{{ block content }}
+
+    <script>
+        // Function to enable the "Next" button after 60 seconds
+        function enableNextButton() {
+            var nextButton = document.getElementById("nextButton");
+            nextButton.removeAttribute("disabled");
+        }
+
+        // Function to update the timer on the button
+        function updateTimer() {
+            var nextButton = document.getElementById("nextButton");
+            var timeLeft = parseInt(nextButton.dataset.timeLeft);
+            if (timeLeft > 0) {
+                timeLeft--;
+                nextButton.dataset.timeLeft = timeLeft;
+                nextButton.innerHTML = "Next (" + timeLeft + "s)";
+                setTimeout(updateTimer, 1000);
+            } else {
+                nextButton.innerHTML = "Next";
+                enableNextButton();
+            }
+        }
+
+        // Initialize the timer and button
+        document.addEventListener("DOMContentLoaded", function() {
+            var nextButton = document.getElementById("nextButton");
+            nextButton.dataset.timeLeft = 30;
+            updateTimer();
+        });
+    </script>
+
+{{ include_sibling 'Instructions.html' }}
+
+<br>
+
+    <button id="nextButton" class="btn btn-primary" onclick="enableNextButton()" disabled>Next</button>
+
+{{ endblock }}

@@ -1,0 +1,31 @@
+{{ block title }}
+Contact Data & Outro
+{{ endblock }}
+{{ block content }}
+
+{{ include_sibling 'progress.html' }}
+
+<p>Dear Participants,</p>
+
+    <p>Thank you for taking the time to complete our survey. Your input is invaluable to us.</p>
+
+    <p>
+        We understand that distractions can happen to anyone,
+        and sometimes we may not answer every question as carefully as we'd like.
+        If you feel that you may have not given your full attention to the questions,
+        don't worry! Please take a moment to reflect and, if needed,
+        let us know if you didn't take the questions as seriously as you'd like.
+        We appreciate your honesty. The implementation of the game will be held
+        separately and your likelihood to be selected will not be influenced by
+        your answer to that question.
+    </p>
+
+    <p>Thank you for your understanding and participation!</p>
+
+    {{ formfield 'usage' }}
+
+    {{ formfield 'feedback' }}
+
+    {{ next_button }}
+
+{{ endblock }}

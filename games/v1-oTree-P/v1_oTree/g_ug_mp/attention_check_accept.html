@@ -1,0 +1,171 @@
+{{ block title }}
+    Game 2 of 2
+{{ endblock }}
+{{ block content }}
+
+{{ include_sibling 'progress.html' }}
+
+<br>
+
+<h5>If you were offered 2£, would you accept the offer?</h4>
+
+<br>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+
+<div id="Offers"></div>
+
+<script>
+        Highcharts.chart('Offers', {
+            chart: {
+                type: 'bar'
+            },
+            title: null,
+            xAxis: {
+                categories: [
+                'How much Player P1 proposed',
+                'How much Player P2 proposed',
+                'The final offer'
+                ],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                max: 6,
+                labels: {
+                    allowDecimals: false,
+                },
+                title: {
+                    text: "Reward (in $)"
+                }
+            },
+            plotOptions: {
+                series: {
+                    animation: false
+                }
+
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                data: [
+                    {
+                        y: 2,
+                        color: '#43a1f5',
+                        borderColor: 'black'
+                    },
+                    {
+                        y: 2,
+                        color: '#43a1f5',
+                        borderColor: 'black'
+                    },
+                    {
+                        y: 2,
+                        color: '#00cbb8',
+                        borderColor: 'black'
+                    }
+                ],
+                showInLegend: false,
+            }]
+        })
+</script>
+
+<br>
+
+The final offer is calculated as the average of 2 and 2, which is 2. If the offer is accepted, the payoffs are calculated as follows:
+
+<br>
+
+
+<div id="Payoffs"></div>
+
+<script>
+Highcharts.chart('Payoffs', {
+    chart: {
+        type: 'pie'
+    },
+    title: null,
+    xAxis: {
+        categories: []
+    },
+    yAxis: {
+        visible: false
+    },
+    plotOptions: {
+        series: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: [{
+                enabled: true,
+                distance: 20
+            }, {
+                enabled: true,
+                distance: -40,
+                format: '{point.y}',
+                style: {
+                    fontSize: '1.2em',
+                    textOutline: 'none',
+                    opacity: 0.7
+                },
+                filter: {
+                    operator: '>',
+                    property: 'percentage',
+                    value: 1
+                }
+            }],
+            animation: false
+        }
+    },
+    credits: {
+        enabled: false
+    },
+    series: [{
+        name: 'Payoffs',
+        data: [
+            {
+                name: 'How much you would earn',
+                y: 2,
+                color: '#FFA500',
+                borderColor: 'white'
+            },
+            {
+                name: 'How much Player P1 would earn',
+                y: 2,
+                color: '#003388',
+                borderColor: 'white'
+            },
+            {
+                name: 'How much Player P2 would earn',
+                y: 2,
+                color: '#003388',
+                borderColor: 'white'
+            }
+        ]
+    }]
+});
+</script>
+
+<br>
+
+    {{ formfield 'attention_check_accept' }}
+
+<p>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Click to open or close Instructions
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    {{ include_sibling 'Instructions.html' }}
+  </div>
+</div>
+
+<br>
+
+    {{ next_button }}
+
+{{ endblock }}

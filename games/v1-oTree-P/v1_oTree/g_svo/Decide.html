@@ -1,0 +1,66 @@
+{{ block title }}
+Task 1 of 3: item {{ subsession.round_number }} of {{ C.NUM_ROUNDS }}
+{{ endblock }}
+{{ block content }}
+
+{{ include_sibling 'progress.html' }}
+
+<p>
+    To access the task on this page, please engage with the slider below.
+    You will only see the distribution after moving it.
+    Utilize the slider to determine the distribution between yourself and the other participants.
+    If the task is unclear, refer to the instructions provided below.
+</p>
+
+<div class="input-group">
+    <input type="range" name="g_svo_choice" id="slider" min="0" max="8" class="form-range" oninput="sliderMoved(this)">
+</div>
+
+<button id="nextButton" class="btn btn-primary" disabled>Next</button>
+
+{{ include_sibling 'chart.html' }}
+
+<script>
+    let sliderHasBeenMoved = false;
+    let nextButton = document.getElementById("nextButton");
+
+    function sliderMoved(input) {
+        let idx = parseInt(input.value);
+        let row = js_vars.rows[idx];
+        let to_self = row.to_self;
+        let to_other = row.to_other;
+        redrawChart(to_self, to_other);
+
+        sliderHasBeenMoved = true;
+        checkSliderMoved();
+    }
+
+    function checkSliderMoved() {
+        if (sliderHasBeenMoved) {
+            nextButton.removeAttribute("disabled");
+        } else {
+            nextButton.setAttribute("disabled", "true");
+        }
+    }
+
+    // Call checkSliderMoved initially to set the initial state of the button
+    checkSliderMoved();
+</script>
+
+<p>
+    Be attentive: the next task may appear similar, but the distribution in the chart will differ.
+    Please read the charts carefully.
+</p>
+
+<p>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Click to open or close Instructions
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    {{ include_sibling 'instructions.html' }}
+  </div>
+</div>
+
+{{ endblock }}

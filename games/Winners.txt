@@ -1,0 +1,7 @@
+UG_SP
+P offered 2, R declined 2 -> No Payoff
+
+UG_MP
+P1 [id: anonymous] offered 2, P2 [id: anonymous] offered 3, R [id: anonymous] accepted -> P1 & P2 get 1.75 each and R gets 2.5
+
+Bonus Payments were made in Prolific
